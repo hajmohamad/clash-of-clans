@@ -23,8 +23,8 @@
                   </Slider>
                   <TextField fx:id="txt_username" layoutX="173.0" layoutY="176.0" prefHeight="25.0" prefWidth="140.0" />
                   <TextField fx:id="txt_password" layoutX="173.0" layoutY="236.0" prefHeight="25.0" prefWidth="140.0" />
-                  <Label fx:id="lbl_login21" alignment="CENTER" layoutX="95.0" layoutY="179.0" prefHeight="27.0" prefWidth="66.0" style="-fx-background-color: none; -fx-border-color: #49EE3CFF; -fx-border-width: 2px;" text="username" textFill="#dac6c6" />
-                  <Label fx:id="lbl_login211" alignment="CENTER" layoutX="95.0" layoutY="239.0" prefHeight="27.0" prefWidth="66.0" style="-fx-background-color: none; -fx-border-color: #49EE3CFF; -fx-border-width: 2px;" text="password" textFill="#d3cccc" />
+                  <Label fx:id="lbl_usernam" alignment="CENTER" layoutX="95.0" layoutY="179.0" prefHeight="27.0" prefWidth="66.0" style="-fx-background-color: none; -fx-border-color: #49EE3CFF; -fx-border-width: 2px;" text="username" textFill="#dac6c6" />
+                  <Label fx:id="lbl_password" alignment="CENTER" layoutX="95.0" layoutY="239.0" prefHeight="27.0" prefWidth="66.0" style="-fx-background-color: none; -fx-border-color: #49EE3CFF; -fx-border-width: 2px;" text="password" textFill="#d3cccc" />
                   <Button fx:id="btn_login1" layoutX="196.0" layoutY="282.0" mnemonicParsing="false" onAction="#mth_loging" prefHeight="25.0" prefWidth="78.0" text="login" />
                   <Button fx:id="btn_signup1" layoutX="196.0" layoutY="282.0" mnemonicParsing="false" onAction="#mth_signup" prefHeight="25.0" prefWidth="78.0" text="sinup" />
                   <Label fx:id="lbl_login111" alignment="CENTER" layoutX="161.0" layoutY="87.0" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: none; -fx-border-color: #49EE3CFF; -fx-border-width: 2px;" text="login" textAlignment="CENTER" textFill="#f5eded" />

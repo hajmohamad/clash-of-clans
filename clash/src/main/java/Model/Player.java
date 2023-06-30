@@ -1,11 +1,16 @@
 package Model;
 
+import Model.Hero.Hero;
+
+import java.util.ArrayList;
+
 public class Player {
     private static Player player;
     private String id;
     private String passWord;
     private int level;
     private int winPlay;
+    private ArrayList<Hero> playerHero;
     private int losePlay;
     private Map playerMap;
 
@@ -16,6 +21,7 @@ public class Player {
         this.winPlay = winPlay;
         this.losePlay = losePlay;
         this.playerMap=playerMap;
+        this.playerHero=new ArrayList<>();
     }
 
     public static Player getPlayer() {
@@ -74,5 +80,13 @@ public class Player {
 
     public void setPlayerMap(Map playerMap) {
         this.playerMap = playerMap;
+    }
+
+    public ArrayList<Hero> getPlayerHero() {
+        return playerHero;
+    }
+
+    public void setPlayerHero(Hero playerHero) {
+        this.playerHero.add(playerHero);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.clash;
 import Controller.AdminController;
 import Controller.PlayerController;
+import Model.Player;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 public class fxml_loginController implements Initializable {
+
 
     @FXML
     private AnchorPane Hbox;
@@ -32,10 +34,10 @@ public class fxml_loginController implements Initializable {
     private Label lbl_login111;
 
     @FXML
-    private Label lbl_login21;
+    private Label lbl_password;
 
     @FXML
-    private Label lbl_login211;
+    private Label lbl_usernam;
 
     @FXML
     private Slider slider_login1;
@@ -47,11 +49,12 @@ public class fxml_loginController implements Initializable {
     private TextField txt_username;
 
 
-        @FXML
+
+    @FXML
         void mth_loging(ActionEvent event) {
             if(PlayerController.loginPlayer(txt_username.getText(),txt_password.getText())){
-
-
+                Player.setPlayer(PlayerController.reedPlayerLogin(txt_username.getText()));
+                System.out.println("hiz");
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("خطا در ورود");
@@ -90,17 +93,20 @@ public class fxml_loginController implements Initializable {
         }
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
-            lbl_login211.setVisible(false);
+            btn_signup1.setVisible(false);
 
             slider_login1.valueProperty().addListener(new ChangeListener<Number>() {
                 public void changed(ObservableValue<? extends Number> ov,
                                     Number old_val, Number new_val) {
                     if(new_val.doubleValue()==slider_login1.getMax()){
-                        lbl_login211.setVisible(true);
+                        btn_signup1.setVisible(true);
+                        btn_login1.setVisible(false);
 
 
                     }else if(new_val.doubleValue()==slider_login1.getMin()){
-                        lbl_login211.setVisible(false);
+                        btn_signup1.setVisible(false);
+                        btn_login1.setVisible(true);
+
 
 
                     }

@@ -1,0 +1,49 @@
+#anchor_Login{
+    -fx-background-color: none;
+    -fx-border-radius: 15px;
+    -fx-border-style: solid;
+    -fx-background-radius: 15px;
+    -fx-border-color:dark ;
+    -fx-border-width: 4px;
+}
+#img_person{
+-fx-border-style: solid;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+}
+#lbl_login{
+    -fx-background-color: white;
+    -fx-border-radius: 10px;
+    -fx-border-style: solid;
+    -fx-background-radius: 10px;
+    -fx-border-color:white ;
+    -fx-border-width: 4px;
+}
+#lbl_login1{
+    -fx-background-color: white;
+    -fx-border-radius: 10px;
+    -fx-border-style: solid;
+    -fx-background-radius: 10px;
+    -fx-border-color:white ;
+    -fx-border-width: 4px;
+}
+.label{
+    -fx-background-color: white;
+    -fx-border-radius: 10px;
+    -fx-border-style: solid;
+    -fx-background-radius: 10px;
+    -fx-border-color:white ;
+    -fx-border-width: 4px;
+}
+.text-field{
+    -fx-background-color: white;
+    -fx-border-radius: 10px;
+    -fx-border-style: solid;
+    -fx-background-radius: 10px;
+    -fx-border-color:white ;
+    -fx-border-width: 4px;
+    -fx-pref-height: 5px;
+}
+.button{-fx-background-color: #9a0aef;}
+#Hbox{
+-fx-background-image: url(img/wellcome.jpg);}

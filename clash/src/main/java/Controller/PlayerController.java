@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Admin;
+import Model.Building.Building;
 import Model.Map;
 import Model.Player;
 import com.example.clash.Main;
@@ -19,7 +20,6 @@ public  class PlayerController {
         }else{
             addPlayerToDatabase(id, passWord);
             Player player=new Player(id, passWord,0,0,0,new Map(id,new ArrayList<>(),new ImageView(Main.class.getResource("img/fireDB.png").toString()),new ArrayList<>(),new ArrayList<>()));
-
             AdminController.addPlayerToAdminArrayList(player);
             Player.setPlayer(player);
             return "your sighUp is successfully";
@@ -64,7 +64,12 @@ public  class PlayerController {
         String sqlCom="INSERT INTO player (playerId, password, level, winPlay, losePlay) VALUES ('"+id+"','"+passWord+"','"+0+"','"+0+"','"+0+"')";
         Statement statement=connection.prepareStatement(sqlCom);
         statement.execute(sqlCom);
+
+        String sqlCom2="INSERT INTO `map`(`playerId`, `MapBackGround`, `MapBuilding`, `xPosition`, `yPosition`) VALUES ('"+id+"','"+"img/map2.jpg"+"','none','0','0')";
+        Statement statement2=connection.prepareStatement(sqlCom2);
+        statement.execute(sqlCom2);
         connection.close();
+
     }
     public static Player reedPlayerLogin(String id){
         try {
@@ -99,6 +104,44 @@ public  class PlayerController {
         }
         connection.close();
         return false;
+
+    }
+    public static void deleteBuildingOnDataBase(){
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clashgame", "mohamadrahi", "MM647131mm");
+
+                String sqlCom=String.format("DELETE FROM `map` WHERE `playerId`='%s'",Player.getPlayer().getId());
+            System.out.println(sqlCom);
+                Statement statement=connection.prepareStatement(sqlCom);
+                statement.execute(sqlCom);
+            connection.close();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public static void setBuildingToDataBase() {
+        try {
+            deleteBuildingOnDataBase();
+            Player.getPlayer().getPlayerMap().delteRow1();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clashgame", "mohamadrahi", "MM647131mm");
+
+        for(Building building:Player.getPlayer().getPlayerMap().getMapBuilding()){
+        String sqlCom=String.format("INSERT INTO `map`(`playerId`, `MapBackGround`, `MapBuilding`, `xPosition`, `yPosition`) VALUES ('%s','%s','%s','%s','%s')",
+                Player.getPlayer().getId(),Player.getPlayer().getPlayerMap().getLinkBackGround(),
+                building.getClassName(),
+                Player.getPlayer().getPlayerMap().getxPosition().get(Player.getPlayer().getPlayerMap().getMapBuilding().indexOf(building)),
+                Player.getPlayer().getPlayerMap().getyPosition().get(Player.getPlayer().getPlayerMap().getMapBuilding().indexOf(building)));
+        Statement statement=connection.prepareStatement(sqlCom);
+            System.out.println(sqlCom);
+        statement.execute(sqlCom);}
+        connection.close();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

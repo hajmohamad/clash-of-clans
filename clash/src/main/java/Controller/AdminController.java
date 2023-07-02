@@ -18,13 +18,15 @@ public class AdminController {
     public static void reedFromDataBase(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/chatroomv1", "mohamadrahi98", "MM647131mm");
-            String sqlCom="SELECT `playerId`, `password`, `level`, `winPlay`, `losePlay`, `playerMap` FROM `player` ";
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clashgame", "mohamadrahi", "MM647131mm");
+            String sqlCom="SELECT `playerId`, `password`, `level`, `winPlay`, `losePlay` FROM `player` ";
             Statement s=connection.prepareStatement(sqlCom);
             ResultSet rs=s.executeQuery(sqlCom);
-            while(rs.next())
-            {
-               AdminController.addPlayerToAdminArrayList(new Player(rs.getString("playerId"),rs.getString("password"),rs.getInt("level"),rs.getInt("winPlay"),rs.getInt("losePlay"),reedMapFromDatabase(rs.getString("playerId"))));
+            while(rs.next()) {
+                if (!Admin.getAdmin().getPlayersUserName().contains(rs.getString("playerId"))){
+                    AdminController.addPlayerToAdminArrayList(new Player(rs.getString("playerId"), rs.getString("password"), rs.getInt("level"), rs.getInt("winPlay"), rs.getInt("losePlay"), reedMapFromDatabase(rs.getString("playerId"))));
+                    Admin.getAdmin().setPlayersUserName(rs.getString("playerId"));
+                }
             }
             connection.close();
         } catch (Exception e) {
@@ -35,7 +37,6 @@ public class AdminController {
     public static void addPlayerToAdminArrayList(Player player){
         Admin.getAdmin().setPlayers(player);
     }
-
     public static Map reedMapFromDatabase(String playerId){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -44,35 +45,41 @@ public class AdminController {
             Statement s=connection.prepareStatement(sqlCom);
             ResultSet rs=s.executeQuery(sqlCom);
             String backGround = new String();
+            backGround=Main.class.getResource("img/noneMap.jpg").toString();
             ArrayList<Building> buildings=new ArrayList<>();
-            ArrayList<Integer> x=new ArrayList<>();
-            ArrayList<Integer> y=new ArrayList<>();
+            ArrayList<Double> x=new ArrayList<>();
+            ArrayList<Double> y=new ArrayList<>();
             while(rs.next()) {
                 if (rs.getString("playerId").equals(playerId)) {
                     backGround = rs.getString("MapBackGround");
                     if ("ArcherDB".equals(rs.getString("MapBuilding"))) {
-                        buildings.add(new ArcherDB());
+                        buildings.add(ArcherDB.getArcherDb());
                     }
                  else if ("FireDB".equals(rs.getString("MapBuilding"))) {
-                    buildings.add(new FireDB());
+                    buildings.add(FireDB.getArcherDb());
                 } else if ("HouseOfKing".equals(rs.getString("MapBuilding"))) {
-                    buildings.add(new HouseOfKing());
-                } else if ("HouseOfKing".equals(rs.getString("MapBuilding"))) {
-                    buildings.add(new HouseOfKing());
+                    buildings.add(HouseOfKing.getArcherDb());
                 }
                 else if ("MortarDB".equals(rs.getString("MapBuilding"))) {
-                    buildings.add(new MortarDB());
+                    buildings.add(MortarDB.getArcherDb());
                 }
                 else if ("WallNb".equals(rs.getString("MapBuilding"))) {
                     buildings.add(new WallNb());
-                }y.add(rs.getInt("yPosition"));
-                    x.add(rs.getInt("xPosition"));
+                }else{
+                        buildings.add(none.getArcherDb());
+                    }
+                    x.add(rs.getDouble("xPosition"));
+                y.add(rs.getDouble("yPosition"));
+
                 }
             }
-            return new Map(playerId,buildings, new ImageView(new Image(Main.class.getResource(backGround).toString())),x,y);
+            Map map=new Map(playerId,buildings, new ImageView(new Image(Main.class.getResource(backGround).toString())),x,y);
+            map.setLinkBackGround(backGround);
+            return map;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
 }
+
 }

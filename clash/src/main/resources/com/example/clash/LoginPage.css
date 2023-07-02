@@ -3,7 +3,6 @@
     -fx-border-radius: 15px;
     -fx-border-style: solid;
     -fx-background-radius: 15px;
-    -fx-border-color:dark ;
     -fx-border-width: 4px;
 }
 #img_person{
@@ -45,5 +44,6 @@
     -fx-pref-height: 5px;
 }
 .button{-fx-background-color: #9a0aef;}
+
 #Hbox{
--fx-background-image: url(img/wellcome.jpg);}
+-fx-background-image: url(img/login.jpg);}

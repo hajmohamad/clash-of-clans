@@ -4,6 +4,7 @@ import javafx.scene.image.ImageView;
 
 public abstract class Building  {
     private int health;
+    private String className;
 
     public int getHealth() {    
         return health;
@@ -23,8 +24,17 @@ public abstract class Building  {
 
     private ImageView BuildingImage;
 
-    protected Building(int health, ImageView buildingImage) {
+    protected Building(int health, String className, ImageView buildingImage) {
         this.health = health;
+        this.className = className;
         BuildingImage = buildingImage;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 }

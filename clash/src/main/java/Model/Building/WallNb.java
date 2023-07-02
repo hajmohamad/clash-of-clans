@@ -5,6 +5,6 @@ import javafx.scene.image.ImageView;
 
 public class WallNb extends NormalBuilding{
     public WallNb() {
-        super(50, new ImageView(new Image("img\\wall.png")));
+        super(50,"WallNb", new ImageView(new Image("img\\wall.png")));
     }
 }

@@ -1,5 +1,6 @@
 package com.example.clash;
 
+import Controller.AdminController;
 import Model.Admin;
 import Model.Building.ArcherDB;
 import Model.Building.FireDB;
@@ -16,10 +17,10 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Scene scene = new Scene(new FXMLLoader(Main.class.getResource("LoginPage.fxml")).load(), 1366, 763);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+        AdminController.reedFromDataBase();
+      allPageshow.mainStage=stage;
+      allPageshow.show_welcome();
+
     }
 
     public static void main(String[] args) {

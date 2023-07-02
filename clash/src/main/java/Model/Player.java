@@ -5,7 +5,21 @@ import Model.Hero.Hero;
 import java.util.ArrayList;
 
 public class Player {
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id='" + id + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", level=" + level +
+                ", winPlay=" + winPlay +
+                ", playerHero=" + playerHero +
+                ", losePlay=" + losePlay +
+                ", playerMap=" + playerMap +
+                '}';
+    }
+
     private static Player player;
+    private static Player warPlayer;
     private String id;
     private String passWord;
     private int level;
@@ -32,6 +46,13 @@ public class Player {
         Player.player = player;
     }
 
+    public static Player getWarPlayer() {
+        return warPlayer;
+    }
+
+    public static void setWarPlayer(Player warPlayer) {
+        Player.warPlayer = warPlayer;
+    }
 
 
     public String getId() {

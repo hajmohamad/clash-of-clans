@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 public class fxml_loginController implements Initializable {
@@ -51,9 +52,10 @@ public class fxml_loginController implements Initializable {
 
 
     @FXML
-        void mth_loging(ActionEvent event) {
-            if(PlayerController.loginPlayer(txt_username.getText(),txt_password.getText())){
-                Player.setPlayer(PlayerController.reedPlayerLogin(txt_username.getText()));
+        void mth_loging(ActionEvent event) throws IOException {
+            //if(PlayerController.loginPlayer(txt_username.getText(),txt_password.getText())){
+                if(true){Player.setPlayer(PlayerController.reedPlayerLogin("mohamadrahi99"));
+                allPageshow.show_playerFirsPAGE();
                 System.out.println("hiz");
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);

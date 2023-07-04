@@ -14,7 +14,16 @@ public class Giant extends Hero{
             return ar;}
         return ar;}
     public Giant() {
-        super( new ImageView(new Image(Main.class.getResource("img/giant.png").toString())), 0, 60, 30
-                ,new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
+        super( new ImageView(new Image(Main.class.getResource("img/gi/fi/Troll_02_1_ATTACK_000.png").toString())), 3, 60, 30
+                ,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),"Giant");
+        super.setHeroName("Giant");
+        buildingAllImg();
+
     }
-}
+    public void buildingAllImg(){
+        for(int i=0;i<8;i++){
+            super.setRunningImg(new ImageView(new Image(Main.class.getResource("img/gi/rn/Troll_02_1_RUN_00"+i+".png").toString())));
+            super.setFightingImg(new ImageView(new Image(Main.class.getResource("img/gi/fi/Troll_02_1_ATTACK_00"+i+".png").toString())));
+//            super.setDeadImg(new ImageView(new Image(Main.class.getResource("img/kn/de/Knight"+i+".png").toString())));
+        }
+}}

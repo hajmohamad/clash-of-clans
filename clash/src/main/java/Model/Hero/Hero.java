@@ -6,9 +6,7 @@ import java.util.ArrayList;
 
 public class Hero extends ImageView  {
     private ImageView heroImg;
-
-
-
+    private String HeroName;
     private ArrayList<ImageView> RunningImg;
     private ArrayList<ImageView> FightingImg;
     private ArrayList<ImageView> deadImg;
@@ -43,7 +41,7 @@ public class Hero extends ImageView  {
     private int health;
     private int damagePower;
     public Hero copy(){
-        return new Hero(getHeroImg(),getMinLevel(),getHealth(),getDamagePower(),this.RunningImg,this.FightingImg,this.deadImg);
+        return new Hero(getHeroImg(),getMinLevel(),getHealth(),getDamagePower(),this.RunningImg,this.FightingImg,this.deadImg,HeroName);
     }
 
 
@@ -63,7 +61,7 @@ public class Hero extends ImageView  {
         this.damagePower = damagePower;
     }
 
-    public Hero(ImageView heroImg, int minLevel, int health, int damagePower,ArrayList<ImageView> runningImg, ArrayList<ImageView> fightingImg, ArrayList<ImageView> deadImg1) {
+    public Hero(ImageView heroImg, int minLevel, int health, int damagePower,ArrayList<ImageView> runningImg, ArrayList<ImageView> fightingImg, ArrayList<ImageView> deadImg1,String NAME) {
         this.heroImg = heroImg;
         this.setImage(heroImg.getImage());
         this.minLevel = minLevel;
@@ -72,6 +70,9 @@ public class Hero extends ImageView  {
         RunningImg=runningImg;
         FightingImg=fightingImg;
         deadImg=deadImg1;
+        HeroName=NAME;
+
+
 
     }
 
@@ -93,5 +94,13 @@ public class Hero extends ImageView  {
 
     public int getHealth() {
         return health;
+    }
+
+    public String getHeroName() {
+        return HeroName;
+    }
+
+    public void setHeroName(String heroName) {
+        HeroName = heroName;
     }
 }

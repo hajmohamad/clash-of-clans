@@ -39,4 +39,11 @@ public class allPageshow {
         allPageshow.mainStage.show();
 
     }
+    public static void show_warPage() throws IOException {
+        Scene scene = new Scene(new FXMLLoader(Main.class.getResource("warPage.fxml")).load(), 1366,763 );
+        allPageshow.mainStage.setTitle("loginPage");
+        allPageshow.mainStage.setScene(scene);
+        allPageshow.mainStage.show();
+
+    }
 }

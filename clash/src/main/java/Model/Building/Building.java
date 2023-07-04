@@ -1,13 +1,20 @@
 package Model.Building;
 
+import com.example.clash.Main;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public abstract class Building  {
+public  class Building extends ImageView {
     private int health;
     private String className;
-
     public int getHealth() {    
         return health;
+    }
+    public Building copy(){
+        return new Building(this.health,this.className,this.BuildingImage);
+    }
+    public void decreaseHealth(int hel){
+        this.health-=hel;
     }
 
     public void setHealth(int health) {
@@ -27,7 +34,8 @@ public abstract class Building  {
     protected Building(int health, String className, ImageView buildingImage) {
         this.health = health;
         this.className = className;
-        BuildingImage = buildingImage;
+        this.BuildingImage = buildingImage;
+        this.setImage(BuildingImage.getImage());
     }
 
     public String getClassName() {

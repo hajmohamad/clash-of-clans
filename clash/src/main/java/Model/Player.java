@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Hero.Hero;
+import Model.Hero.*;
 
 import java.util.ArrayList;
 
@@ -20,6 +20,7 @@ public class Player {
 
     private static Player player;
     private static Player warPlayer;
+    public static int buildingInMap;
     private String id;
     private String passWord;
     private int level;
@@ -36,6 +37,11 @@ public class Player {
         this.losePlay = losePlay;
         this.playerMap=playerMap;
         this.playerHero=new ArrayList<>();
+        this.playerHero.add(archer.getHero());
+        this.playerHero.add(barbarian.getHero());
+        this.playerHero.add(Giant.getHero());
+        this.playerHero.add(wizard.getHero());
+
     }
 
     public static Player getPlayer() {

@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 public class HouseOfKing extends NormalBuilding {
     public static HouseOfKing houseOfKing;
     public HouseOfKing() {
-        super(150,"HouseOfKing",new ImageView(new Image(Main.class.getResource("img/townhall.png").toString())));
+        super(1500,"HouseOfKing",new ImageView(new Image(Main.class.getResource("img/townhall.png").toString())));
     }
     public static HouseOfKing getArcherDb(){
         if(houseOfKing==null){

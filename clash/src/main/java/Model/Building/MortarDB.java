@@ -7,7 +7,8 @@ import javafx.scene.image.ImageView;
 public class MortarDB extends DefensiveBuilding {
     public static MortarDB mortarDB;
     public MortarDB() {
-        super(35,"MortarDB", 70, new ImageView(new Image(Main.class.getResource("img/mortar.png").toString())));
+        super(900,"MortarDB", 70, new ImageView(new Image(Main.class.getResource("img/mortar.png").toString())),
+                new ImageView(new Image(Main.class.getResource("img/moArrow.png").toString())));
     }
     public static MortarDB getArcherDb(){
         if(mortarDB==null){

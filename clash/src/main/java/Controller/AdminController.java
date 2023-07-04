@@ -30,7 +30,7 @@ public class AdminController {
             }
             connection.close();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+         throw new RuntimeException(e);
         }
 
     }

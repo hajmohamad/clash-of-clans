@@ -44,13 +44,15 @@ public class fxml_PlayerMap implements Initializable {
                 ap.getChildren().add(builing);
             }else {
                 hbox_adminBuilding.getChildren().add(builing);
-            }
 
-            builing.setOnMousePressed(event->{
+            }
+            builing.setOnMouseClicked(event->{
                     builing.setTranslateX(event.getSceneX());
                     builing.setTranslateY(event.getSceneY());
                     if(!ap.getChildren().contains(builing)){
-                    ap.getChildren().add(builing);}
+                    ap.getChildren().add(builing);
+
+                    }
 
             });
 

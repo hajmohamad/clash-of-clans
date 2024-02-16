@@ -14,9 +14,11 @@ public class barbarian extends Hero{
             return ar;}
         return ar;}
     public barbarian() {
-        super( new ImageView(new Image(Main.class.getResource("img/kn/rn/Knight0.png").toString())), 0, 35, 10
-                ,new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
+        super( new ImageView(new Image(Main.class.getResource("img/kn/rn/Knight0.png").toString())), 0, 40, 10
+                ,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),"barbarian");
         buildingAllImg();
+        super.setHeroName("barbarian");
+
 
     }
     public void buildingAllImg(){

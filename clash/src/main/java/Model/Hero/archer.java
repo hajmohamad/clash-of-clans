@@ -15,8 +15,17 @@ public class archer extends Hero{
             return ar;}
         return ar;}
     public archer() {
-        super( new ImageView(new Image(Main.class.getResource("img/archer.png").toString())), 0, 35, 20
-        ,new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
+        super( new ImageView(new Image(Main.class.getResource("img/ar/fi/Elf_01__ATTACK_000.png").toString())), 2, 50, 20
+        ,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),"archer");
+        super.setHeroName("archer");
+        buildingAllImg();
+    }
+    public void buildingAllImg(){
+        for(int i=0;i<8;i++){
+            super.setRunningImg(new ImageView(new Image(Main.class.getResource("img/ar/rn/Elf_01__RUN_00"+i+".png").toString())));
+            super.setFightingImg(new ImageView(new Image(Main.class.getResource("img/ar/fi/Elf_01__ATTACK_00"+i+".png").toString())));
+//            super.setDeadImg(new ImageView(new Image(Main.class.getResource("img/kn/de/Knight"+i+".png").toString())));
+        }
     }
 
 

@@ -45,10 +45,10 @@ public class Hero extends ImageView  {
     }
 
 
-    public void setHealth(int health) {
+    public synchronized void setHealth(int health) {
         this.health = health;
     }
-    public void decreasHealth(int health) {
+    public synchronized void decreasHealth(int health) {
         this.health -= health;
     }
 
@@ -92,7 +92,7 @@ public class Hero extends ImageView  {
         this.minLevel = minLevel;
     }
 
-    public int getHealth() {
+    public synchronized int getHealth() {
         return health;
     }
 

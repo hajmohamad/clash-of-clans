@@ -15,7 +15,11 @@ public class fxml_playerPage {
     }
 
     @FXML
-    void mth_showYourHeroes(MouseEvent event) {
+    void mth_showYourHeroes(MouseEvent event) throws IOException {
+        Scene scene = new Scene(new FXMLLoader(Main.class.getResource("BuyHero.fxml")).load(), 1366,763 );
+        allPageshow.mainStage.setTitle("loginPage");
+        allPageshow.mainStage.setScene(scene);
+        allPageshow.mainStage.show();
 
     }
 
@@ -28,7 +32,11 @@ public class fxml_playerPage {
     }
 
     @FXML
-    void mth_showYourProfile(MouseEvent event) {
+    void mth_showYourProfile(MouseEvent event) throws IOException {
+        Scene scene = new Scene(new FXMLLoader(Main.class.getResource("playerProfile.fxml")).load(), 1366,763 );
+        allPageshow.mainStage.setTitle("loginPage");
+        allPageshow.mainStage.setScene(scene);
+        allPageshow.mainStage.show();
 
     }
 }

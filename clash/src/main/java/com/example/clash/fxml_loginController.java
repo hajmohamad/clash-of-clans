@@ -53,20 +53,20 @@ public class fxml_loginController implements Initializable {
 
     @FXML
         void mth_loging(ActionEvent event) throws IOException {
-            //if(PlayerController.loginPlayer(txt_username.getText(),txt_password.getText())){
-                if(true){Player.setPlayer(PlayerController.reedPlayerLogin("mohamadrahi99"));
-                allPageshow.show_playerFirsPAGE();
-                System.out.println("hiz");
-            }else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("خطا در ورود");
-                alert.setHeaderText(null);
-                alert.setContentText("نام کاربری و پسورد  شما اشنباه است " );
-                alert.showAndWait();
+            if(true) {
+                if (true) {
+                    Player.setPlayer(PlayerController.reedPlayerLogin("mohamadrahi99"));
+                    allPageshow.show_playerFirsPAGE();
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("خطا در ورود");
+                    alert.setHeaderText(null);
+                    alert.setContentText("نام کاربری و پسورد  شما اشنباه است ");
+                    alert.showAndWait();
+                }
+
+
             }
-
-
-
         }
         @FXML
         void mth_signup(ActionEvent event) {

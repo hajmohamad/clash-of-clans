@@ -10,14 +10,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clash.fxml_attackChosePage">
+<AnchorPane prefHeight="717.0" prefWidth="1376.0" style="-fx-background-color: brown;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clash.fxml_attackChosePage">
    <children>
-      <ImageView fitHeight="742.0" fitWidth="1363.0" layoutX="-8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="742.0" fitWidth="1368.0" layoutX="28.0" layoutY="-44.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="2.0">
          <image>
             <Image url="@img/attackChosePage.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="ap_enemyPlayer" layoutX="134.0" layoutY="114.0" prefHeight="570.0" prefWidth="1026.0">
+      <AnchorPane fx:id="ap_enemyPlayer" layoutX="150.0" layoutY="110.0" prefHeight="570.0" prefWidth="1026.0">
          <children>
             <AnchorPane fx:id="ap_enemyMap" layoutX="532.0" layoutY="186.0" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="65.0">
                <children>
@@ -46,6 +46,7 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
+                  <Label fx:id="lbl_money" text="مانی" />
                   <Label fx:id="lbl_letsWar" alignment="CENTER" prefHeight="61.0" prefWidth="131.0" style="-fx-background-color: red; -fx-background-radius: 15px;" text="حمله">
                      <font>
                         <Font size="23.0" />

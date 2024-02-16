@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 public class ArcherDB extends DefensiveBuilding{
 public static ArcherDB archerDB;
     public ArcherDB() {
-        super(700,"ArcherDB", 60, new ImageView(new Image(Main.class.getResource("img/archerTower.png").toString())),
+        super(20,"ArcherDB", 600, new ImageView(new Image(Main.class.getResource("img/archerTower.png").toString())),
                 new ImageView(new Image(Main.class.getResource("img/arArrow.png").toString())));
     }
     public static ArcherDB getArcherDb(){

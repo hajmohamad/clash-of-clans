@@ -1,7 +1,7 @@
 package Model;
 
 import Model.Building.*;
-import Model.Hero.Hero;
+import Model.Hero.*;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,13 @@ public class Admin {
         buildings.add(MortarDB.getArcherDb());
         this.heroes = new ArrayList<>();
         this.playersUserName=new ArrayList<>();
+        this.heroes=new ArrayList<>();
+            this.heroes.add(archer.getHero());
+            this.heroes.add(barbarian.getHero());
+            this.heroes.add(Giant.getHero());
+
+            this.heroes.add(wizard.getHero());
+
     }
 
     public ArrayList<Player> getPlayers() {

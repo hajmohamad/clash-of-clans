@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,6 +35,8 @@ public class fxml_attackChosePage implements Initializable {
     private ImageView img_enemyMap;
     @FXML
     private Label lbl_letsWar;
+    @FXML
+    private Label lbl_money;
 
 
 
@@ -68,10 +71,10 @@ public class fxml_attackChosePage implements Initializable {
         if(Admin.getAdmin().getPlayers().get(i).getId().equals(Player.getPlayer().getId())){
             i+=1;
         }
-        System.out.println(("username :"+Admin.getAdmin().getPlayers().get(i).getId()));
-        System.out.println(Admin.getAdmin().getPlayers().get(i).getPlayerMap().getMapBuilding().toString());
-        System.out.println(Admin.getAdmin().getPlayers().get(i).getPlayerMap().getyPosition().toString());
-        System.out.println(Admin.getAdmin().getPlayers().get(i).getPlayerMap().getxPosition().toString());
+//        System.out.println(("username :"+Admin.getAdmin().getPlayers().get(i).getId()));
+//        System.out.println(Admin.getAdmin().getPlayers().get(i).getPlayerMap().getMapBuilding().toString());
+//        System.out.println(Admin.getAdmin().getPlayers().get(i).getPlayerMap().getyPosition().toString());
+//        System.out.println(Admin.getAdmin().getPlayers().get(i).getPlayerMap().getxPosition().toString());
 
 
         lbl_enemyUserName.setText("username :"+Admin.getAdmin().getPlayers().get(i).getId());
@@ -79,6 +82,7 @@ public class fxml_attackChosePage implements Initializable {
         lbl_enemywinCount.setText("win count :"+Admin.getAdmin().getPlayers().get(i).getWinPlay());
         lbl_enemylevel.setText("level :"+Admin.getAdmin().getPlayers().get(i).getLevel());
         img_enemyMap.setImage(Admin.getAdmin().getPlayers().get(i).getPlayerMap().getMapBackGround().getImage());
+        lbl_money.setText("جایزه دریافتی :"+Admin.getAdmin().getPlayers().get(i).getLevel()*100);
         for (Building building : Admin.getAdmin().getPlayers().get(i).getPlayerMap().getMapBuilding()) {
 
                 ImageView builing = building.getBuildingImage();
@@ -93,6 +97,11 @@ public class fxml_attackChosePage implements Initializable {
         }
        lbl_letsWar.setOnMouseClicked(e->{
            Player.setWarPlayer( Admin.getAdmin().getPlayers().get(i));
+           try {
+               allPageshow.show_warPage();
+           } catch (IOException ex) {
+               throw new RuntimeException(ex);
+           }
        });
     }
 

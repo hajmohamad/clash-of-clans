@@ -14,9 +14,11 @@ public class wizard extends Hero{
             return ar;}
         return ar;}
     public wizard() {
-        super( new ImageView(new Image(Main.class.getResource("img/wi/rn/wiz0.png").toString())), 0, 80, 40
-                ,new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
+        super( new ImageView(new Image(Main.class.getResource("img/wi/rn/wiz0.png").toString())), 4, 100, 40
+                ,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),"wizard");
+        super.setHeroName("wizard");
         buildingAllImg();
+
     }
     public   void buildingAllImg(){
         for(int i=0;i<8;i++){

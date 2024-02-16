@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Admin;
 import Model.Building.Building;
 import Model.Map;
 import Model.Player;
@@ -13,13 +12,36 @@ import java.util.ArrayList;
 import static Controller.AdminController.reedMapFromDatabase;
 
 public  class PlayerController {
+    public static void addLoserToDataBase(Player loser)  {
+        try{
+        loser.setLosePlay(loser.getLosePlay()+1);
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clashgame", "mohamadrahi", "MM647131mm");
+        String sqlCom="UPDATE `player` SET `losePlay`='"+ loser.getLosePlay()+"' WHERE `playerId`='"+loser.getId()+"';";
+        Statement statement=connection.prepareStatement(sqlCom);
+        statement.execute(sqlCom);
+        connection.close();}catch (Exception Z){}
+
+    }
+    public static void addWinerToDataBase(Player Winer){
+        try{
+            Winer.setWinPlay(Winer.getWinPlay()+1);
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clashgame", "mohamadrahi", "MM647131mm");
+        String sqlCom="UPDATE `player` SET  `money`='"+ ((Player.getWarPlayer().getLevel()*100)+Winer.getMoney())+"' , `winPlay`='"+ Winer.getWinPlay()+"' WHERE `playerId`='"+Winer.getId()+"';";
+        Statement statement=connection.prepareStatement(sqlCom);
+        statement.execute(sqlCom);
+        connection.close();}catch (Exception Z){}
+
+
+    }
     public static String addPlayer(String id, String passWord){
         try {
         if(playerIsInInDataBase(id)){
             return "id you chose is available in database ";
         }else{
             addPlayerToDatabase(id, passWord);
-            Player player=new Player(id, passWord,0,0,0,new Map(id,new ArrayList<>(),new ImageView(Main.class.getResource("img/fireDB.png").toString()),new ArrayList<>(),new ArrayList<>()));
+            Player player=new Player(id, passWord,0, 0,0,new Map(id,new ArrayList<>(),new ImageView(Main.class.getResource("img/fireDB.png").toString()),new ArrayList<>(),new ArrayList<>()));
             AdminController.addPlayerToAdminArrayList(player);
             Player.setPlayer(player);
             return "your sighUp is successfully";
@@ -75,12 +97,14 @@ public  class PlayerController {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clashgame", "mohamadrahi", "MM647131mm");
-            String sqlCom="SELECT `playerId`, `password`, `level`, `winPlay`, `losePlay` FROM `player` ";
+            String sqlCom="SELECT `playerId`, `password`, `level`,`money`, `winPlay`, `losePlay` FROM `player` ";
             Statement s=connection.prepareStatement(sqlCom);
             ResultSet rs=s.executeQuery(sqlCom);
             while(rs.next())
             {if(rs.getString("playerId").equals(id)){
-                return new Player(rs.getString("playerId"),rs.getString("password"),rs.getInt("level"),rs.getInt("winPlay"),rs.getInt("losePlay"),reedMapFromDatabase(rs.getString("playerId")));
+                Player player= new Player(rs.getString("playerId"),rs.getString("password"),rs.getInt("level"), rs.getInt("winPlay"),rs.getInt("losePlay"),reedMapFromDatabase(rs.getString("playerId")));
+                player.setMoney(rs.getInt("money"));
+                return player;
             }}
             connection.close();
         } catch (Exception e) {

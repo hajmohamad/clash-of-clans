@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 public class FireDB extends DefensiveBuilding {
     public static FireDB fireDB;
     public FireDB() {
-        super(500,"FireDB", 90, new ImageView(new Image(Main.class.getResource("img/fireDB.png").toString())),
+        super(20,"FireDB", 900, new ImageView(new Image(Main.class.getResource("img/fireDB.png").toString())),
                 new ImageView(new Image(Main.class.getResource("img/missile.png").toString()))
                 );
     }

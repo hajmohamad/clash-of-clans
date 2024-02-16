@@ -4,6 +4,9 @@ import Controller.AdminController;
 import Model.Admin;
 import Model.Building.ArcherDB;
 import Model.Building.FireDB;
+import Model.Hero.archer;
+import Model.Hero.barbarian;
+import Model.Hero.wizard;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,12 +24,11 @@ public class Main extends Application {
       allPageshow.mainStage=stage;
       allPageshow.show_welcome();
 
+
     }
 
     public static void main(String[] args) {
         Admin.addAdmin();
-
-
         launch();
     }
 }

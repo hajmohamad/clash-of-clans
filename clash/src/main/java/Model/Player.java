@@ -25,11 +25,25 @@ public class Player {
     private String passWord;
     private int level;
     private int winPlay;
+    private int money;
+
     private ArrayList<Hero> playerHero;
     private int losePlay;
     private Map playerMap;
+    private ArrayList<String> heroName;
+    public void decreaseHeroName(String STR){
+        heroName.remove(STR);
+    }
 
-    public Player(String id, String passWord, int level, int winPlay, int losePlay,Map playerMap) {
+    public ArrayList<String> getHeroName() {
+        return heroName;
+    }
+
+    public void setHeroName(String heroName) {
+        this.heroName.add(heroName);
+    }
+
+    public Player(String id, String passWord, int level, int winPlay, int losePlay, Map playerMap) {
         this.id = id;
         this.passWord = passWord;
         this.level = level;
@@ -37,10 +51,53 @@ public class Player {
         this.losePlay = losePlay;
         this.playerMap=playerMap;
         this.playerHero=new ArrayList<>();
-        this.playerHero.add(archer.getHero());
-        this.playerHero.add(barbarian.getHero());
-        this.playerHero.add(Giant.getHero());
-        this.playerHero.add(wizard.getHero());
+        heroName=new ArrayList<>();
+        if(level>=archer.getHero().getMinLevel()){
+            this.playerHero.add(archer.getHero());
+//            this.playerHero.add(archer.getHero());
+//            this.playerHero.add(archer.getHero());
+//            this.playerHero.add(archer.getHero());
+//
+//            heroName.add(archer.getHero().getHeroName());
+//            heroName.add(archer.getHero().getHeroName());
+//            heroName.add(archer.getHero().getHeroName());
+            heroName.add(archer.getHero().getHeroName());
+
+        }
+        if(level>=barbarian.getHero().getMinLevel()){
+            this.playerHero.add(barbarian.getHero());
+            heroName.add(barbarian.getHero().getHeroName());
+
+        }if(level>=Giant.getHero().getMinLevel()){
+            this.playerHero.add(Giant.getHero());
+//            this.playerHero.add(Giant.getHero());
+//            this.playerHero.add(Giant.getHero());
+//            this.playerHero.add(Giant.getHero());
+//
+//            heroName.add(Giant.getHero().getHeroName());
+//            heroName.add(Giant.getHero().getHeroName());
+//            heroName.add(Giant.getHero().getHeroName());
+            heroName.add(Giant.getHero().getHeroName());
+
+
+        }if(level>=wizard.getHero().getMinLevel()){
+
+            this.playerHero.add(wizard.getHero());
+//            this.playerHero.add(wizard.getHero());
+//            this.playerHero.add(wizard.getHero());
+//            this.playerHero.add(wizard.getHero());
+//
+//            heroName.add(wizard.getHero().getHeroName());
+//            heroName.add(wizard.getHero().getHeroName());
+//            heroName.add(wizard.getHero().getHeroName());
+            heroName.add(wizard.getHero().getHeroName());
+
+
+        }
+
+
+
+
 
     }
 
@@ -115,5 +172,16 @@ public class Player {
 
     public void setPlayerHero(Hero playerHero) {
         this.playerHero.add(playerHero);
+    }
+
+    public int getMoney() {
+        return money;
+    }
+    public void decreasMoney(int money) {
+        this.money -= money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
     }
 }

@@ -19,12 +19,14 @@ public class AdminController {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clashgame", "mohamadrahi", "MM647131mm");
-            String sqlCom="SELECT `playerId`, `password`, `level`, `winPlay`, `losePlay` FROM `player` ";
+            String sqlCom="SELECT `playerId`, `password`, `level`,`money`, `winPlay`, `losePlay` FROM `player` ";
             Statement s=connection.prepareStatement(sqlCom);
             ResultSet rs=s.executeQuery(sqlCom);
             while(rs.next()) {
                 if (!Admin.getAdmin().getPlayersUserName().contains(rs.getString("playerId"))){
-                    AdminController.addPlayerToAdminArrayList(new Player(rs.getString("playerId"), rs.getString("password"), rs.getInt("level"), rs.getInt("winPlay"), rs.getInt("losePlay"), reedMapFromDatabase(rs.getString("playerId"))));
+                    Player player= new Player(rs.getString("playerId"),rs.getString("password"),rs.getInt("level"), rs.getInt("winPlay"),rs.getInt("losePlay"),reedMapFromDatabase(rs.getString("playerId")));
+                    player.setMoney(rs.getInt("money"));
+                    AdminController.addPlayerToAdminArrayList(player);
                     Admin.getAdmin().setPlayersUserName(rs.getString("playerId"));
                 }
             }

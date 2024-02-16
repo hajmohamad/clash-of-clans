@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="717.0" prefWidth="1376.0" style="-fx-background-color: brown;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clash.fxml_playerProfile">
+   <children>
+      <ImageView fitHeight="742.0" fitWidth="1368.0" layoutX="28.0" layoutY="-44.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="2.0">
+         <image>
+            <Image url="@img/attackChosePage.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="ap_enemyPlayer" layoutX="150.0" layoutY="110.0" prefHeight="570.0" prefWidth="1026.0">
+         <children>
+            <AnchorPane fx:id="ap_enemyMap" layoutX="532.0" layoutY="186.0" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="65.0">
+               <children>
+                  <ImageView fx:id="img_enemyMap" fitHeight="384.0" fitWidth="684.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8c99a4" height="526.0" layoutX="184.0" layoutY="126.0" opacity="0.59" stroke="BLACK" strokeType="INSIDE" width="330.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <VBox alignment="TOP_CENTER" layoutX="214.0" layoutY="136.0" prefHeight="510.0" prefWidth="320.0" spacing="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+               <children>
+                  <Label fx:id="lbl_enemyUserName" alignment="CENTER" prefHeight="42.0" prefWidth="164.0" text="sd">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="lbl_enemylevel" alignment="CENTER" prefHeight="42.0" prefWidth="164.0" text="sd" />
+                  <Label fx:id="lbl_enemyloseCount" alignment="CENTER" prefHeight="42.0" prefWidth="164.0" text="sd">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_enemywinCount" alignment="CENTER" prefHeight="42.0" prefWidth="164.0" text="sd">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_money" text="مانی" />
+                  <Label fx:id="lbl_letsWar" alignment="CENTER" prefHeight="61.0" prefWidth="131.0" style="-fx-background-color: red; -fx-background-radius: 15px;" text="حمله">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
